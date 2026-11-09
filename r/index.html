@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Une recette t’attend dans Yoyoyo</title>
+<meta name="description" content="Yoyoyo trouve un repas qui colle à tes macros.">
+<meta property="og:title" content="Une recette t’attend dans Yoyoyo">
+<meta property="og:description" content="Yoyoyo trouve un repas qui colle à tes macros.">
+<meta property="og:image" content="https://lejardinbio.github.io/icon.png">
+<!--
+  Page du lien de partage d'une recette (A_FAIRE 34). Si Yoyoyo est installée, l'iPhone ouvre directement la recette dans
+  l'app et cette page ne s'affiche pas (lien universel, fichier /.well-known/apple-app-site-association). Sinon, elle
+  invite à télécharger l'app. Source : partage-web/ du projet Yoyoyo ; publiée sur https://lejardinbio.github.io/r/.
+-->
+<style>
+  :root { --bg: #F6F6F7; --surface: #FFFFFF; --text: #0B0B0D; --muted: #6B6B73; --line: rgba(0,0,0,0.07);
+    --carbs: #2E9BEA; --fat: #8F62F5; --protein: #F0A020; --button: #0B0B0D; --buttonText: #FFFFFF; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0A0A0B; --surface: #161618; --text: #F5F5F7; --muted: #8E8E96; --line: rgba(255,255,255,0.07);
+      --carbs: #6FC3FF; --fat: #B18CFF; --protein: #FFB547; --button: #F5F5F7; --buttonText: #0B0B0D; }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); display: flex; align-items: center; justify-content: center;
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+    padding: max(24px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom)); }
+  main { position: relative; overflow: hidden; width: 100%; max-width: 420px; padding: 40px 24px 28px; border-radius: 28px;
+    background: var(--surface); border: 1px solid var(--line); text-align: center; }
+  main::before, main::after { content: ""; position: absolute; border-radius: 50%; filter: blur(46px); opacity: 0.3; pointer-events: none; }
+  main::before { width: 200px; height: 200px; right: -70px; top: -90px; background: var(--carbs); box-shadow: -150px 40px 0 -40px var(--fat); }
+  main::after { width: 160px; height: 160px; left: -50px; bottom: -110px; background: var(--protein); }
+  main > * { position: relative; }
+  img { width: 88px; height: 88px; border-radius: 22px; display: block; margin: 0 auto 22px; }
+  h1 { font-size: 28px; line-height: 1.1; letter-spacing: -0.04em; font-weight: 800; margin: 0 0 12px; }
+  p { color: var(--muted); margin: 0 0 26px; }
+  a.store { display: block; padding: 16px 20px; border-radius: 999px; background: var(--button); color: var(--buttonText);
+    font-weight: 600; font-size: 17px; text-decoration: none; }
+  .dots { display: inline-flex; gap: 4px; margin-top: 22px; }
+  .dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--carbs); }
+  .dots i:nth-child(2) { background: var(--fat); }
+  .dots i:nth-child(3) { background: var(--protein); }
+</style>
+</head>
+<body>
+<main>
+  <img src="../icon.png" alt="Yoyoyo">
+  <h1 id="title">Une recette t’attend dans Yoyoyo</h1>
+  <p id="body">Installe Yoyoyo, l’app qui trouve un repas qui colle à tes macros. Si elle est déjà sur ton iPhone, ce lien ouvre directement la recette.</p>
+  <a class="store" id="store" href="https://apps.apple.com/app/id6817137314">Télécharger sur l’App Store</a>
+  <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+</main>
+<script>
+  // Anglais pour les téléphones qui ne sont pas en français.
+  if (!/^fr\b/i.test(navigator.language || 'fr')) {
+    document.documentElement.lang = 'en';
+    document.title = 'A recipe is waiting for you in Yoyoyo';
+    document.getElementById('title').textContent = 'A recipe is waiting for you in Yoyoyo';
+    document.getElementById('body').textContent = 'Get Yoyoyo, the app that finds a meal that fits your macros. If it is already on your iPhone, this link opens the recipe directly.';
+    document.getElementById('store').textContent = 'Download on the App Store';
+  }
+</script>
+</body>
+</html>

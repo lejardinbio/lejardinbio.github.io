@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["VZ35Q4Q3CK.com.louisquemeneur.yoyoyo"],
+        "components": [
+          { "/": "/r/*", "comment": "Recette partagée" }
+        ]
+      }
+    ]
+  }
+}
